@@ -18,7 +18,7 @@ Late nite bytes
 
 ## Contributing
 
-Anthony Wiggins ~ [https://github.com/awigginsjr](https://github.com/awigginsjr)
+Anthony Wiggins Jr ~ [https://github.com/awigginsjr](https://github.com/awigginsjr)
 
 Carlos Ruiz ~ [https://github.com/Carlospetsdogs](https://github.com/Carlospetsdogs)
 
