@@ -1,23 +1,18 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => await User.find(),
   },
   Mutation: {
-    register: async (_, { username, email, password }) => {
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        throw new Error('User already exists');
-      }
-
-      const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new User({ username, email, password: hashedPassword });
-      await user.save();
-
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    register: async (_, args) => {
+      const user = await User.create(args);
+      //add token
+  const token = signToken(user)
+  
 
       return { token, user };
     },
