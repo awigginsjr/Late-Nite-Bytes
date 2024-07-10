@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 // import auth from './utils/auth';
-import Login from './components/auth/login';
-import Signup from './components/register';
+
 // import Home from './pages/Home';
 // import Dashboard from './pages/Dashboard';
 import {
@@ -39,30 +38,19 @@ const client = new ApolloClient({
 
 const App = () => {
   return (
-    <ApolloProvider client = {client}>
-    <BrowserRouter>
-      <Switch>
-        {/* <Route exact path="/" component={Home} /> */}
-        <Route path="/login" component={<Login/>} />
-        <Route path="/" component={<Signup/>} />
-        {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
-      </Switch>
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <Outlet />
+      {/* <Router> */}
+        {/* <Switch> */}
+          {/* <Route exact path="/" component={Home} /> */}
+          {/* <Route exact path="/login" component={<Login />} />
+          <Route path="/" component={<Signup />} /> */}
+          {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
+        {/* </Switch> */}
+      {/* </Router> */}
     </ApolloProvider>
-  );
-};
+ 
+  )
+}
 
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={(props) =>
-//       Auth.isLoggedIn() ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect to="/login" />
-//       )
-//     }
-//   />
-// );
-
-export default App;
+export default App
