@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { REGISTER_USER } from '../../graphql/mutations';
-import Auth from '../../utils/Auth';
+import { REGISTER_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Signup = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [formState, setFormState] = useState({ username: '', email: '', password: '', areaCode: '' });
   const [register, { error }] = useMutation(REGISTER_USER);
 
   const handleChange = (event) => {
@@ -29,6 +29,7 @@ const Signup = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleFormSubmit}>
       <input
         name="username"
@@ -51,9 +52,17 @@ const Signup = () => {
         onChange={handleChange}
         placeholder="Password"
       />
+      <input
+        name="areaCode"
+        type="areaCode"
+        value={formState.areaCode}
+        onChange={handleChange}
+        placeholder="areaCode"
+      />
       <button type="submit">Signup</button>
       {error && <p>Signup failed</p>}
     </form>
+    </>
   );
 };
 
