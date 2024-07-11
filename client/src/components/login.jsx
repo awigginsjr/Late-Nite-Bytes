@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../graphql/mutations';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login, { loading, error }] = useMutation(LOGIN_USER);
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await login({ variables: { email, password } });
       localStorage.setItem('token', data.login.token);
-      history.push('/');
+      // history.push('/');
+      navigate('/');
     } catch (err) {
       console.error(err);
     }
