@@ -31,7 +31,7 @@ const Signup = () => {
   return (
     <>
     <a href="/login" id="login-signup-btn">Log in</a>
-    <div className="login-container">
+    <div className="container">
     <form onSubmit={handleFormSubmit}>
       <input
         name="username"
