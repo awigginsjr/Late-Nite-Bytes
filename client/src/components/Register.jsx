@@ -22,7 +22,7 @@ const Signup = () => {
         variables: { ...formState },
       });
       Auth.saveToken(data.register.token);
-      window.location.assign('/');
+      window.location.assign('/profile');
     } catch (e) {
       console.error(e);
     }
