@@ -1,26 +1,26 @@
 
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Homepage() {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+  // const [showSignup, setShowSignup] = useState(false);
 
-  const handleLoginClick = (e) => {
-    e.preventDefault();
-    setShowLogin(true);
-    setShowSignup(false);
-  };
+  // const handleLoginClick = (e) => {
+  //   e.preventDefault();
+  //   setShowLogin(true);
+  //   setShowSignup(false);
+  // };
 
-  const handleSignupClick = (e) => {
-    e.preventDefault();
-    setShowSignup(true);
-    setShowLogin(false);
-  };
+  // const handleSignupClick = (e) => {
+  //   e.preventDefault();
+  //   setShowSignup(true);
+  //   setShowLogin(false);
+  // };
 
   return (
     <div>
-      <div className="hero">
+      {/* <div className="hero">
         <h1>Late Nite Bytes</h1>
       </div>
       <div className="navbar">
@@ -34,8 +34,8 @@ function Homepage() {
         <p>
           At Late Nite Bytes, we are dedicated to bringing you the best late-night food recommendations. Whether you are looking for a quick bite or a full meal, our platform connects you to the top restaurants open late in your area. Enjoy seamless browsing and discover new favorites right from the comfort of your home.
         </p>
-      </div>
-      {showLogin && (
+      </div> */}
+      {/* {showLogin && (
         <div className="container login-container" id="login-container">
           <h2>Login</h2>
           <form>
@@ -46,7 +46,7 @@ function Homepage() {
             <button type="submit">Login</button>
           </form>
           <div className="signup-link">
-            <p>Don't have an account? <a href="#" onClick={handleSignupClick}>Sign up</a></p>
+            <p>Do not have an account? <a href="#" onClick={handleSignupClick}>Sign up</a></p>
           </div>
         </div>
       )}
@@ -64,7 +64,7 @@ function Homepage() {
             <p>Already have an account? <a href="#" onClick={handleLoginClick}>Log in</a></p>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

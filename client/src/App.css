@@ -98,6 +98,8 @@ body {
 
 /* Common styling for both login and signup containers */
 .container {
+  margin-right:auto;
+  margin-left: auto;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
