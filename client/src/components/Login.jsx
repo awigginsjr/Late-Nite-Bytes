@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../graphql/mutations';
+import { LOGIN_USER } from '../utils/mutations';
 // import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,6 +24,9 @@ const Login = () => {
   };
 
   return (
+    <div>
+      <a href="/signup">signup</a>
+      <div className="login-container">
     <form onSubmit={handleSubmit}>
       <input
         type="email"
@@ -44,6 +47,8 @@ const Login = () => {
       </button>
       {error && <p>{error.message}</p>}
     </form>
+    </div>
+    </div>
   );
 };
 

@@ -22,12 +22,11 @@ const resolvers = {
         throw new Error('User not found');
       }
 
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        throw new Error('Invalid credentials');
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw AuthenticationError;
       }
-
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      const token = signToken(user);
 
       return { token, user };
     },

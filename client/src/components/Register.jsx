@@ -30,6 +30,8 @@ const Signup = () => {
 
   return (
     <>
+    <a href="/login" id="login-signup-btn">Log in</a>
+    <div className="login-container">
     <form onSubmit={handleFormSubmit}>
       <input
         name="username"
@@ -62,6 +64,7 @@ const Signup = () => {
       <button type="submit">Signup</button>
       {error && <p>Signup failed</p>}
     </form>
+    </div>
     </>
   );
 };
