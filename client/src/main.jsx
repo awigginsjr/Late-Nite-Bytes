@@ -14,8 +14,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 
 import App from './App.jsx'
-import Signup from "./components/register.jsx"
-import Login from "./components/login.jsx"
+import Register from "./components/Register.jsx"
+import Login from "./components/Login.jsx"
 
 const router = createBrowserRouter([
   {
@@ -23,14 +23,15 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <h1 className="display-2">Wrong page!</h1>,
     children: [
-      {
-        index: true,
-        element: <Signup />
-      },
       // {
-      //   path: '/signup',
-      //   element: <Signup />
+      //   index: true,
+      //   element: <Homepage />,
+      //   path: '/',
       // },
+      {
+        element: <Register />,
+        path: '/signup',
+      },
        {
         path: '/login',
         element: <Login />
