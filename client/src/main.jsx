@@ -18,6 +18,7 @@ import "./App.css"
 import Register from "./components/Register.jsx"
 import Login from "./components/Login.jsx"
 import Homepage from "./components/Homepage.jsx"
+import UserProfile from './components/UserProfile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
        {
         path: '/login',
         element: <Login />
+      },
+      {
+        path: '/profile',
+        element: <UserProfile />
       }
     ]
   }

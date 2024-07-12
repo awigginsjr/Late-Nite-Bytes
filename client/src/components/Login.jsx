@@ -17,7 +17,7 @@ const Login = () => {
       const { data } = await login({ variables: { email, password } });
       localStorage.setItem('token', data.login.token);
       // history.push('/');
-      navigate('/');
+      navigate('/profile');
     } catch (err) {
       console.error(err);
     }
