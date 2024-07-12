@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Late Nite Bytes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #050505;
+      background-image: url(./public/food\ wallpaper.avif);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      background-color: #080000;
+      background-image: url(./public/collage-various-food-products-260nw-1114876286.webp);
+      color: #000205;
+      width: 100%;
+      text-align: center;
+      padding: 50px 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 70px;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+
+    .intro {
+      max-width: 800px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+      color: #007bff;
+      background-color: rgb(0, 12, 12);
+      border-radius: 10px;
+    }
+
+    .login-container {
+      display: none;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      width: 300px;
+    }
+
+    .login-container h2 {
+      margin-top: 0;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container label {
+      margin: 10px 0 5px;
+    }
+
+    .login-container input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-container button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .signup-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <h1>Late Nite Bytes</h1>
+  </div>
+  <div class="navbar">
+    <a href="#" id="login-signup-btn">Log in/Sign up</a>
+    <a href="#">About Us</a>
+  </div>
+  <div class="intro">
+    <h2>Welcome to Late Nite Bytes</h2>
+    <p>
+      At Late Nite Bytes, we are dedicated to bringing you the best late-night food recommendations. Whether you're looking for a quick bite or a full meal, our platform connects you to the top restaurants open late in your area. Enjoy seamless browsing and discover new favorites right from the comfort of your home.
+    </p>
+  </div>
+  <div class="login-container" id="login-container">
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+  </div>
+  <script type="module" src="./src/main.jsx"></script>
+  <script>
+    document.getElementById('login-signup-btn').addEventListener('click', function() {
+      var loginContainer = document.getElementById('login-container');
+      if (loginContainer.style.display === 'none' || loginContainer.style.display === '') {
+        loginContainer.style.display = 'block';
+      } else {
+        loginContainer.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
