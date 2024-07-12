@@ -40,3 +40,131 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #050505;
+  background-image: url(./public/food\ wallpaper.avif);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero {
+  background-color: #080000;
+  background-image: url(./public/collage-various-food-products-260nw-1114876286.webp);
+  color: #000205;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 70px;
+}
+
+.navbar {
+  background-color: #007bff;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  background-color: #0056b3;
+}
+
+.intro {
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+  background-color: rgb(0, 12, 12);
+  border-radius: 10px;
+}
+
+/* Common styling for both login and signup containers */
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  width: 300px;
+}
+
+.container h2 {
+  margin-top: 0;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
+  margin: 10px 0 5px;
+}
+
+.container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #0056b3;
+}
+
+/* Specific styling for login container */
+.login-container .signup-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-container .signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-container .signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Specific styling for signup container */
+.signup-container .login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-container .login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-container .login-link a:hover {
+  text-decoration: underline;
+}

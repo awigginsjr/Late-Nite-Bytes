@@ -40,14 +40,6 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Outlet />
-      {/* <Router> */}
-        {/* <Switch> */}
-          {/* <Route exact path="/" component={Home} /> */}
-          {/* <Route exact path="/login" component={<Login />} />
-          <Route path="/" component={<Signup />} /> */}
-          {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
-        {/* </Switch> */}
-      {/* </Router> */}
     </ApolloProvider>
  
   )
