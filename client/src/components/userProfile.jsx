@@ -1,11 +1,9 @@
-
 import { useState, useEffect } from 'react';
 // Import the necessary hook for authentication if using Auth0
 // import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { useMutation } from '@apollo/client';
 import { FAV_RESTAURANT } from '../utils/mutations';
-
 
 function UserProfile() {
   // Uncomment the following line if using Auth0
@@ -20,15 +18,22 @@ function UserProfile() {
   };
 
   const [zipCode, setZipCode] = useState(user.zipCode);
-  const [restaurants, setRestaurants] = useState([]);
-  const [favoritedRestaurants, setFavoritedRestaurants] = useState([]);
- const [favRestaurant] = useMutation(FAV_RESTAURANT)
-  const testList =[
-    {id: 1, name: "Olive Garden"},
-    {id: 2, name: "Chili's"},
-    {id: 3, name: "Red Lobster"}
-  ]
 
+
+
+  const [restaurants, setRestaurants] = useState([{
+    
+  }, 
+  {
+
+  }]);
+
+
+
+  const [favoritedRestaurants, setFavoritedRestaurants] = useState([]);
+  const [favRestaurant] = useMutation(FAV_RESTAURANT);
+
+  /*
   // Fetch restaurants based on zip code
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -42,14 +47,25 @@ function UserProfile() {
 
     fetchRestaurants();
   }, [zipCode]);
+  */
 
   const saveRestaurant = async (restaurantId) => {
-  const restaurantToSave = restaurants.find(restaurant => restaurant.id === id)
+    const restaurantToSave = restaurants.find(restaurant => restaurant.id === restaurantId);
 
-  const { data } = await favRestaurant ({
-    variables: {restaurantData:{restaurantToSave}}
-  })
-  console.log(data)
+    if (!restaurantToSave) {
+      console.error('Restaurant not found');
+      return;
+    }
+
+    try {
+      const { data } = await favRestaurant({
+        variables: { restaurantData: restaurantToSave }
+      });
+      setFavoritedRestaurants([...favoritedRestaurants, restaurantToSave]);
+      console.log(data);
+    } catch (error) {
+      console.error('Error saving restaurant:', error);
+    }
   };
 
   const handleZipCodeChange = (e) => {
@@ -58,6 +74,10 @@ function UserProfile() {
 
   const handleZipCodeSubmit = (e) => {
     e.preventDefault();
+    if (zipCode.trim() === '') {
+      alert('Please enter a valid ZIP code.');
+      return;
+    }
     // The useEffect will automatically trigger when zipCode state changes
   };
 
@@ -77,15 +97,12 @@ function UserProfile() {
       </form>
 
       <h3>Restaurants in your area:</h3>
-      {/* <ul>
+      <ul>
         {restaurants.map((restaurant) => (
-          <li key={restaurant.id}>{restaurant.name}</li>
-        ))}
-      </ul> */}
-
-       <ul>
-        {testList.map((restaurant) => (
-          <li key={restaurant.id}>{restaurant.name}</li>
+          <li key={restaurant.id}>
+            {restaurant.name} 
+            <button onClick={() => saveRestaurant(restaurant.id)}>Favorite</button>
+          </li>
         ))}
       </ul>
 
@@ -99,4 +116,5 @@ function UserProfile() {
   );
 }
 
-export default UserProfile; 
+export default UserProfile;
+
