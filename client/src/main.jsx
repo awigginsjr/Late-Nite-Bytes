@@ -18,7 +18,7 @@ import "./App.css"
 import Register from "./components/Register.jsx"
 import Login from "./components/Login.jsx"
 import Homepage from "./components/Homepage.jsx"
-import UserProfile from './components/UserProfile.jsx'
+import UserProfile from './pages/userProfile.jsx'
 
 const router = createBrowserRouter([
   {

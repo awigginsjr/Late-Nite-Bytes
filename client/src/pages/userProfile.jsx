@@ -12,10 +12,21 @@ const UserProfile = ({ zipCode }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/restaurants?zipCode=${zipCode}`);
-                setRestaurants(response.data);  // Assuming response.data is an array of restaurants
+                console.log(`Fetching coordinates for zip code: ${zipCode}`);
+                const geocodeResponse = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipCode}&key=${import.meta.env.VITE_GOOGLE_API_KEY}`);
+                console.log('Geocode response:', geocodeResponse.data);
+
+                const { lat, lng } = geocodeResponse.data.results[0].geometry.location;
+                console.log(`Coordinates: ${lat}, ${lng}`);
+
+                console.log('Fetching nearby restaurants');
+                const placesResponse = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&type=restaurant&key=${import.meta.env.VITE_GOOGLE_API_KEY}`);
+                console.log('Places response:', placesResponse.data);
+
+                setRestaurants(placesResponse.data.results);
                 setLoading(false);
             } catch (err) {
+                console.error('Error:', err);
                 setError(err);
                 setLoading(false);
             }
@@ -35,7 +46,7 @@ const UserProfile = ({ zipCode }) => {
             <h2>Favorite Restaurants</h2>
             <ul>
                 {restaurants.map((restaurant) => (
-                    <li key={restaurant.restaurantId}>
+                    <li key={restaurant.place_id}>
                         <h3>{restaurant.name}</h3>
                     </li>
                 ))}
