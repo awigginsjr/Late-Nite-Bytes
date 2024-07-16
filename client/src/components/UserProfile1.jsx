@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantList from './RestaurantList';
+import RestaurantList from './RestaurantList1';
 
 function UserProfile() {
   // Mocking user data with useState for demo purposes
