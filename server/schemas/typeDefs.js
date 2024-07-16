@@ -7,7 +7,16 @@ const typeDefs = gql`
     email: String
     password: String
     areaCode: String
+    favoriteRestaurants: [Restaurant]
   }
+  type Restaurant {
+  restaurantId: ID, 
+  name: String
+  } 
+  input RestaurantInput {
+  restaurantId: ID, 
+  name: String
+  } 
   type AuthPayload {
     token: String
     user: User
@@ -19,6 +28,7 @@ const typeDefs = gql`
   type Mutation {
     register(username: String, email: String, password: String, areaCode: String): AuthPayload
     login(email: String, password: String): AuthPayload
+    favRestaurant (restaurantData: RestaurantInput): User
   }
 `;
 
