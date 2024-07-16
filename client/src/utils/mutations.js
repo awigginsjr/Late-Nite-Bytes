@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client'
+import { gql } from '@apollo/client'
 
 export const REGISTER_USER = gql`
   mutation register($username: String, $email: String, $password: String, $areaCode: String,) {
@@ -23,3 +23,14 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const FAV_RESTAURANT = gql`
+mutation favRestaurant ($restaurantData: RestaurantInput){
+favRestaurant (restaurantData: $restaurantData){
+favoriteRestaurants{
+      restaurantId
+      name
+     }
+  }
+}
+`

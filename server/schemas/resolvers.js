@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const { signToken } = require('../utils/auth');
+const User = require('../models/user');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -30,6 +30,21 @@ const resolvers = {
 
       return { token, user };
     },
+    favRestaurant: async (parent,{ restaurantData }, context ) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate (
+          {
+            _id: context.user._id
+          },
+          {$push: {
+            favoriteRestaurants: restaurantData
+          }},
+          { new: true }
+        )
+        return updatedUser 
+      }
+      throw AuthenticationError;
+    }
   },
 };
 
