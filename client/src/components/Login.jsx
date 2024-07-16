@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../graphql/mutations';
+import { LOGIN_USER } from '../schemas/mutations';
 // import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
