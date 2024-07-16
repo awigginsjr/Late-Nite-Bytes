@@ -24,6 +24,19 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const RESTAURANTS = gql`
+  mutation restaurants($areaCode: String) {
+    restaurants(areaCode: $areaCode) {
+      restaurantId
+      name
+      image
+      rating
+      open
+      link
+    }
+  }
+`
+
 export const FAV_RESTAURANT = gql`
 mutation favRestaurant ($restaurantData: RestaurantInput){
 favRestaurant (restaurantData: $restaurantData){

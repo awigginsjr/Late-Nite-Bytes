@@ -10,8 +10,13 @@ const typeDefs = gql`
     favoriteRestaurants: [Restaurant]
   }
   type Restaurant {
-  restaurantId: ID, 
-  name: String
+    _id: ID
+    restaurantId: String
+    name: String
+    image: String
+    rating: Int
+    open: Boolean
+    link: String
   } 
   input RestaurantInput {
   restaurantId: ID, 
@@ -29,6 +34,7 @@ const typeDefs = gql`
     register(username: String, email: String, password: String, areaCode: String): AuthPayload
     login(email: String, password: String): AuthPayload
     favRestaurant (restaurantData: RestaurantInput): User
+    restaurants(areaCode: String): [Restaurant]
   }
 `;
 
