@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { REGISTER_USER } from '../utils/mutations';
+import { REGISTER_USER } from '../graphql/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
