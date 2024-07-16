@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const restaurantSchema = require("./restaurant")
 
 
 const userSchema = new mongoose.Schema({
@@ -7,6 +8,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   areaCode: { type: String, required: true },
+  favoriteRestaurants: [restaurantSchema] 
 });
 
 userSchema.pre('save', async function (next) {
