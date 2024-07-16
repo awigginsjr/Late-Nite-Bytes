@@ -1,22 +1,19 @@
+import {Link} from 'react-router-dom';
+
 function Header(){
     return(
         <div className="hero">
-        <div>
-            <h1>Late Nite Bytes</h1>
-        </div>
+            <div>
+                <h1>Late Nite Bytes</h1>
+            </div>
             <div className="navbar">
-                <a href="/login" id="login-signup-btn" >Log in</a>
-                <br />
-                <a href="/signup" id="login-signup-btn" >Sign up</a>
-                <a href="#">About Us</a>
+                <Link to="/">Home</Link>
+                <Link to="/login" id="login-signup-btn" >Log In</Link>
+                {/* <br /> */}
+                <Link to="/signup" id="login-signup-btn" >Sign Up</Link>
+                <a href="https://buy.stripe.com/test_4gwaFldwx7mB5kk8ww">Buy us a ☕</a> 
             </div>
-                <div className="intro">
-                    <h2>Welcome to Late Nite Bytes</h2>
-                        <p>
-                            At Late Nite Bytes, we are dedicated to bringing you the best late-night food recommendations. Whether you are looking for a quick bite or a full meal, our platform connects you to the top restaurants open late in your area. Enjoy seamless browsing and discover new favorites right from the comfort of your home.
-                        </p>
-                </div>
-            </div>
+        </div>
     )
 }
 
