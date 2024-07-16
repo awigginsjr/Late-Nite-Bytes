@@ -1,9 +1,13 @@
+require('dotenv').config({path: '../.env'});
+
 const express = require('express');
 const path = require('path');
+const axios = require('axios');
 // Import the ApolloServer class
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
+
 
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
@@ -36,6 +40,31 @@ const startApolloServer = async () => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   }
+
+
+  // http://localhost:3001/api/restaurants?location=xyz&radius=abc&type=wahtever&key=asdfsafdsafsaf
+  app.get('/api/restaurants', async (req, res) => {
+
+    //console.log(req.session);
+    //const { location, radius, type } = req.query;
+
+    let location = req.query.zipcode;
+    let radius = 5;
+    let type = 'gas';
+    const apiKey = process.env.VITE_GOOGLE_API_KEY;
+
+    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=${type}&key=${apiKey}`;
+
+    console.log(apiKey);
+    console.log(url);
+
+    try {
+      const response = await axios.get(url);
+      res.json(response.data);
+    } catch (error) {
+      res.status(500).send('Error fetching data from Google Places API');
+    }
+  });
 
   db.once('open', () => {
     app.listen(PORT, () => {
