@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div>
-      <a href="/signup">signup</a>
+    
       <div className="container">
     <form onSubmit={handleSubmit}>
       <input
