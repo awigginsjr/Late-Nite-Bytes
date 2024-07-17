@@ -1,5 +1,8 @@
 // footer component 
 
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faGithub, faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 function Footer(){
 
     const icons = 
@@ -9,11 +12,18 @@ function Footer(){
         { name: 'fab fa-twitter icon', link: 'https://twitter.com/', color: '#1DA1F2' }
     ];
 
+    // const socialMediaLinks = [
+    //     { name: faGithub, link: 'https://github.com/', color: '#333' },
+    //     { name: faInstagram, link: 'https://www.instagram.com/', color: '#E4405F' },
+    //     { name: faFacebook, link: 'https://www.facebook.com/', color: '#1877F2' },
+    //     { name: faTwitter, link: 'https://twitter.com/', color: '#1DA1F2' }
+    //   ];
+
     return(
         <footer className='flex-row'>
             {icons.map(icon => (
                 <a href={icon.link} key={icon.name} target="_blank" rel="noopener noreferrer">
-                    <i className={`${icon.name} fa-1x`} style={{ color: icon.color }}></i>
+                    <i className={`${icon.name} fa-1x`} style={{ color: icon.color }}> </i>
                 </a>
             ))}
         </footer>

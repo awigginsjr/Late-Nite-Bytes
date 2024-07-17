@@ -15,16 +15,19 @@
 
 body {
   /* font-family: Arial, sans-serif; */
-  background-color: #000;
-  background-image: url(./public/food\ wallpaper.avif);
+  background-color: #1a1a1a;
+  /* background-image: url(./public/food\ wallpaper.avif); */
+  background-image: url(./food\ wallpaper.avif);
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* ----- Header styling ----- */
+
 .hero {
-  background-color: #080000;
+  background-color: #1a1a1a;
   /* background-image: url(./public/collage-various-food-products-260nw-1114876286.webp); */
   color: #000;
   width: 100%;
@@ -36,7 +39,7 @@ body {
 .hero h1{
   margin-left: auto;
   margin-right: auto;
-  font-size: 70px;
+  font-size: 100px;
   font-family:'Pacifico', cursive;
   font-size: 4rem;
   color: #fff;
@@ -59,6 +62,59 @@ body {
   z-index: 1; /* Ensure text is above background */
 }
 
+/* ----- Header styling ----- */
+
+/* ----- Nav bar styling ----- */
+
+.navbar {
+  background-color: #1a1a1a;
+  /* width: 100%; */
+  /* padding: 10px 0; */
+  display: flex;
+  justify-content: center;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); */
+  /* padding: 10px; */
+  /* text-align: center; */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid transparent; /* Ensure there's a border */
+  border-radius: 20px; /* Adjust the border radius as needed */
+  transition: box-shadow 0.3s ease, outline 0.3s ease; /* Smooth transition */
+  position: relative; /* Ensure relative positioning for absolute box shadow */
+}
+
+.navbar a:hover {
+  /* background-color: #f00; */
+  box-shadow: 0 0 10px #f00; /* Red glowing effect */
+  outline: 2px solid #f00; /* Red outline */
+  animation: flicker 1.5s infinite alternate;
+  text-shadow: 
+  1px 1px 2px #000,
+  2px 2px 4px #000,
+  3px 3px 6px #000,
+  4px 4px 8px #000,
+  5px 5px 10px #f00,
+  0 0 20px #f00,
+  0 0 30px #f00,
+  0 0 40px #f00,
+  0 0 50px #f00,
+  0 0 60px #f00,
+  0 0 70px #f00,
+  0 0 80px #f00;
+  z-index: 1; /* Ensure text is above background */
+}
+
+/* ----- Nav bar styling ----- */
+
+/* ----- Key frames flicker for header and nav  ----- */
+
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     opacity: 1;
@@ -68,40 +124,31 @@ body {
   }
 }
 
-.navbar {
-  /* background-color: #007bff;
-  width: 100%;
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  padding: 10px;
-  text-align: center;
-}
+/* ----- Key frames flicker for header and nav  ----- */
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  font-size: 20px;
-}
-
-.navbar a:hover {
-  background-color: #f00;
-}
+/* ----- Intro styling ----- */
 
 .intro {
-  max-width: 800px;
+  max-width: 1500px;
   padding: 20px;
   text-align: center;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  color: whitesmoke;
-  background-color: rgb(0, 12, 12);
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, .9);
+  border-radius: 20px;
+  font-family:'Pacifico', cursive;
 }
+
+.intro h2 {
+  color: whitesmoke;
+}
+
+.intro p {
+  color: whitesmoke;
+}
+
+/* ----- Intro styling ----- */
 
 /* Common styling for both login and signup containers */
 .container {
@@ -178,41 +225,6 @@ body {
   text-decoration: underline;
 }
 
-footer {
-  font-size: 48px;
-  justify-content: center;
-}
-
-footer a {
-  width: 70px;
-  height: 70px;
-  background-color: #fff;
-  text-align: center;
-  line-height: 65px;
-  font-size: 35px;
-  margin: 10px 5px;
-  display: block;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  border: 3px solid #fff;
-  z-index: 1;
-}
-
-footer a .icon {
-  position: relative;
-  color: #262626;
-  transition: .5s;
-  z-index: 3;
-  line-height: 1.5;
-}
-
-footer a:hover {
-  opacity: 1;
-  color: #fff;
-  transform: rotateY(360deg);
-}
-
 /* styling for userProfile.jsx */
 
 /* Basic styling for the user profile container */
@@ -283,3 +295,66 @@ footer a:hover {
   margin: 5px 0;
   font-size: 14px;
 }
+
+/* ----- Footer Styling ------ */
+
+footer {
+  font-size: 48px;
+  justify-content: center;
+}
+
+footer a {
+  width: 70px;
+  height: 70px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 65px;
+  font-size: 35px;
+  margin: 10px 5px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+  line-height: 1.5;
+}
+
+footer a .icon {
+  position: relative;
+  /* color: #262626; */
+  transition: .5s;
+  z-index: 3;
+  line-height: 1.5;
+}
+
+footer a {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+  line-height: 1.5;
+}
+
+footer a:hover {
+  opacity: 1;
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  /* position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+  line-height: 1.5; */
+  /* justify-content: space-between; */
+}
+
+/* ----- Footer Styling ------ */
