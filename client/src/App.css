@@ -186,38 +186,77 @@ body {
 
 .photo-gallery {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex-wrap: nowrap; */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  padding: 10px;
+  gap: 20px; /* Adds space between items */
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  scroll-behavior: smooth; /* Smooth scrolling for better UX */
 }
 
+/* .photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: fit-content;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
 .photo-item {
-  width: 30%; /* Adjust width as needed */
+  /* width: 20%;  */
+  /* justify-content: space-between; */
+  /* text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px; */
+  /* gap: 10px; */
+  margin-left: auto;
+  margin-right: auto;
+  flex: 0 0 auto; /* Prevent items from shrinking or growing */
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0 10px; /* Adjust margin as needed */
 }
 
 .photo-wrapper {
-  flex-wrap: wrap;
-  flex-direction: column;
-  max-width: 500px;
-  padding: 20px;
+  /* flex-wrap: wrap; */
+  /* flex-direction: column; */
+  /* position: relative; */
+  width: 350px;
+  height: 600px;
+  padding: 10px;
   text-align: center;
   margin: 20px auto;
   background-color: rgba(0, 0, 0, 0.95);
-  border-radius: 20px;
+  border-radius: 50px;
   overflow: hidden;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* display: flex; */
 }
 
 .photo-wrapper img {
-  width: 100%;
-  height: auto;
+  /* flex-shrink: 0; */
+  /* justify-content: center; */
+  /* object-fit: cover; */
+  width: 225px;
+  height: 425px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.95);
+  transition: transform 0.3s;
+
 }
 
 .photo-wrapper h3 {
-  color: whitesmoke;
-  font-family:'Pacifico', cursive;
   font-size: 20px;
+  font-family:'Pacifico', cursive;
   color: whitesmoke;
   text-shadow: 
   1px 1px 2px #000,
@@ -240,6 +279,18 @@ body {
   font-family:'Pacifico', cursive;
 }
 
+@media (max-width: 430px) {
+  .photo-gallery {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+
+  .photo-item {
+    flex: 1 1 100%; /* Make items take full width */
+    max-width: 100%;
+    margin: 10px 0; /* Adjust margin as needed */
+  }
+}
+
 /* ----- home page photos  ------ */
 
 /* ----- Error styling ----- */
@@ -259,6 +310,20 @@ body {
 
 .error-page h1 {
   color: whitesmoke;
+  text-shadow: 
+  1px 1px 2px #000,
+  2px 2px 4px #000,
+  3px 3px 6px #000,
+  4px 4px 8px #000,
+  5px 5px 10px #f00,
+  0 0 20px #f00,
+  0 0 30px #f00,
+  0 0 40px #f00,
+  0 0 50px #f00,
+  0 0 60px #f00,
+  0 0 70px #f00,
+  0 0 80px #f00;
+  z-index: 1;
 }
 
 .error-page p {
@@ -595,5 +660,3 @@ footer a .icon:hover:before {
 
 /* ----- Footer Styling ------ */
 
-
- 
