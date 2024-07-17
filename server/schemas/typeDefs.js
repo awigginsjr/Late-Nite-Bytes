@@ -14,13 +14,17 @@ const typeDefs = gql`
     restaurantId: String
     name: String
     image: String
-    rating: Int
-    open: Boolean
+    rating: String
+    open: String
     link: String
   } 
   input RestaurantInput {
   restaurantId: ID, 
-  name: String
+  name: String,
+  image: String
+    rating: String
+    open: String
+    link: String
   } 
   type AuthPayload {
     token: String
