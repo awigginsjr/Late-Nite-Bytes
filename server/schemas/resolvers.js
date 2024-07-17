@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const axios = require('axios');
 // const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { signToken, AuthenticationError } = require('../utils/auth');
@@ -31,29 +32,51 @@ const resolvers = {
       return { token, user };
     },
 
-    restaurants: async (parent,{ restaurantData }, context ) => {
+    restaurants: async (parent, {areaCode}, context ) =>
+    {
+      let list = [];
 
+      if (!context.user) return list;
 
+      const user = await User.findById(context.user._id);
 
-      return [
+      let zip = areaCode || (user ? user.areaCode : null);
+
+      if (!zip) return list;
+
+      let location = {}; try {
+
+        const geocodeResponse = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${process.env.VITE_GOOGLE_API_KEY}`);
+        
+        location = geocodeResponse.data.results[0].geometry.location;
+
+      } catch(err) {};
+
+      if (!location.lat && !location.lng) return list;
+
+      try {
+
+        const placesResponse = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat},${location.lng}&radius=5000&type=restaurant&key=${process.env.VITE_GOOGLE_API_KEY}`);
+        const results = placesResponse.data.results;
+
+        for (let i = 0; i < results.length; i++)
         {
-         restaurantId: "aksdlfjasjkfasdjfjasdkl",
-         name: "StarBucks",
-         image: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
-         rating: 5,
-         open: true,
-         link: "https://www.google.com/maps/place/Starbucks/@35.3285077,-81.0713206,12z/data=!4m10!1m2!2m1!1sstarbucks!3m6!1s0x8856a5d348be5efd:0xd7562e7d82ca6d3f!8m2!3d35.3268674!4d-80.9447512!15sCglzdGFyYnVja3MiA4gBAVoLIglzdGFyYnVja3OSAQtjb2ZmZWVfc2hvcOABAA!16s%2Fg%2F11s0w2jm8_?entry=ttu",
-        },
-      
-        {
-          restaurantId: "22aksldfjas32423432",
-          name: "Burger King",
-          image: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
-          rating: 3,
-          open: true,
-          link: "https://www.google.com/maps/place/Burger+King/@35.3287327,-81.3185937,10z/data=!4m10!1m2!2m1!1sburgerking!3m6!1s0x8856a1020873a27d:0x52e87cbb3149cd73!8m2!3d35.2694222!4d-80.85449!15sCgpidXJnZXJraW5nIgOIAQFaDCIKYnVyZ2Vya2luZ5IBCnJlc3RhdXJhbnTgAQA!16s%2Fg%2F1tf1cg9j?entry=ttu",
-         }
-      ]
+          let location = results[i];
+
+          console.log(location);
+
+          list.push({
+            restaurantId: location.place_id,
+            name: location.name,
+            image: location.photos[0],
+            rating: location.rating,
+            open: location.opening_hours,
+            link: location.vicinity,
+           });
+        }
+      } catch(err) {};
+
+      return list;
     },
 
 
