@@ -10,8 +10,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Footer from './components/footer';
-import Header from './components/header';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

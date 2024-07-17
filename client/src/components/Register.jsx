@@ -32,6 +32,7 @@ const Signup = () => {
     <>
 
     <div className="container">
+    <h2>Sign Up</h2>
     <form onSubmit={handleFormSubmit}>
       <input
         name="username"
@@ -59,9 +60,9 @@ const Signup = () => {
         type="areaCode"
         value={formState.areaCode}
         onChange={handleChange}
-        placeholder="areaCode"
+        placeholder="Zip Code"
       />
-      <button type="submit">Signup</button>
+      <button type="submit">Sign Up</button>
       {error && <p>Signup failed</p>}
     </form>
     </div>

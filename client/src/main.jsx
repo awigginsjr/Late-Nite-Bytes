@@ -15,6 +15,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
 import "./App.css"
+import Error from './components/Error.jsx'
 import Register from "./components/Register.jsx"
 import Login from "./components/Login.jsx"
 import Homepage from "./components/Home.jsx"
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <h1 className="display-2">Wrong page!</h1>,
+    errorElement: <Error />, 
     children: [
      {
        index: true,
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <UserProfile />
+      },
+      {
+        path: '*',
+        element: <Error />
       }
     ]
   }
