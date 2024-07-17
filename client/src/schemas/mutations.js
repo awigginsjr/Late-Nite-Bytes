@@ -29,10 +29,8 @@ export const RESTAURANTS = gql`
     restaurants(areaCode: $areaCode) {
       restaurantId
       name
-      image
       rating
       open
-      link
     }
   }
 `
@@ -47,3 +45,8 @@ favoriteRestaurants{
   }
 }
 `
+
+// rating 
+// open
+// image
+//link 

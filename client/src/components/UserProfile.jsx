@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react';
-// Import the necessary hook for authentication if using Auth0
-// import { useAuth0 } from '@auth0/auth0-react';
-// import axios from 'axios';
-import '../App.css';
 import { useMutation } from '@apollo/client';
 import { RESTAURANTS } from '../schemas/mutations';
 
@@ -36,10 +32,37 @@ function UserProfile() {
     }
   }, [zipCode]);
 
-  console.log('restaurants', loading, restaurants);
+  const styles = {
+    container: {
+      fontSize: '24px',
+      color: 'whitesmoke',
+      textShadow: `
+        1px 1px 2px #000,
+        2px 2px 4px #000,
+        3px 3px 6px #000,
+        4px 4px 8px #000,
+        5px 5px 10px #f00,
+        0 0 20px #f00,
+        0 0 30px #f00,
+        0 0 40px #f00,
+        0 0 50px #f00,
+        0 0 60px #f00,
+        0 0 70px #f00,
+        0 0 80px #f00
+      `,
+      zIndex: 1,
+    },
+    image: {
+      width: '100px',
+      height: '100px',
+    },
+    restaurantContainer: {
+      marginBottom: '20px',
+    },
+  };
 
   return (
-    <div>
+    <div style={styles.container}>
       <h1>Search Restaurants</h1>
       <input
         type="text"
@@ -47,19 +70,28 @@ function UserProfile() {
         onChange={(e) => setZipCode(e.target.value)}
         placeholder="Enter zip code"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={() => handleSearch(zipCode)}>Search</button>
       <div>
-        {loading ? <p>Loading...</p> : 
-        error ? <p>Error occurred</p> : 
-        restaurants.map((restaurant, index) => (
-          <div key={index}>
-            <p>{restaurant.name}</p>
-            <p>{restaurant.address}</p>
-          </div>
-        ))}
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error occurred</p>
+        ) : (
+          restaurants.map((restaurant, index) => (
+            <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
+              <img src={restaurant.image} alt={restaurant.name} style={styles.image} />
+              <p>Name: {restaurant.name}</p>
+              <p>Address: {restaurant.address}</p>
+              <p>Rating: {restaurant.rating}</p>
+              <p>Open: {restaurant.open ? 'Yes' : 'No'}</p>
+              <a href={restaurant.link} target="_blank" rel="noopener noreferrer">Visit Website</a>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
 }
 
 export default UserProfile;
+
