@@ -12,6 +12,7 @@ function UserProfile() {
 
     try {
       const { data } = await loadRestaurants({ variables: { areaCode: zip } });
+      console.log('Backend response:', data); // Log backend response
       list = data.restaurants;
     } catch (err) {
       console.error(err);
@@ -52,12 +53,62 @@ function UserProfile() {
       `,
       zIndex: 1,
     },
+    input: {
+      fontSize: '24px',
+      color: 'whitesmoke',
+      textShadow: `
+        1px 1px 2px #000,
+        2px 2px 4px #000,
+        3px 3px 6px #000,
+        4px 4px 8px #000,
+        5px 5px 10px #f00,
+        0 0 20px #f00,
+        0 0 30px #f00,
+        0 0 40px #f00,
+        0 0 50px #f00,
+        0 0 60px #f00,
+        0 0 70px #f00,
+        0 0 80px #f00
+      `,
+      zIndex: 1,
+      backgroundColor: '#333',
+      border: '1px solid #fff',
+      padding: '10px',
+      marginBottom: '10px',
+    },
+    button: {
+      fontSize: '24px',
+      color: 'whitesmoke',
+      textShadow: `
+        1px 1px 2px #000,
+        2px 2px 4px #000,
+        3px 3px 6px #000,
+        4px 4px 8px #000,
+        5px 5px 10px #f00,
+        0 0 20px #f00,
+        0 0 30px #f00,
+        0 0 40px #f00,
+        0 0 50px #f00,
+        0 0 60px #f00,
+        0 0 70px #f00,
+        0 0 80px #f00
+      `,
+      zIndex: 1,
+      backgroundColor: '#333',
+      border: '1px solid #fff',
+      padding: '10px 20px',
+      cursor: 'pointer',
+    },
     image: {
       width: '100px',
       height: '100px',
     },
     restaurantContainer: {
       marginBottom: '20px',
+    },
+    restaurantName: {
+      fontWeight: 'bold',
+      color: 'blue',
     },
   };
 
@@ -69,8 +120,9 @@ function UserProfile() {
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
         placeholder="Enter zip code"
+        style={styles.input}
       />
-      <button onClick={() => handleSearch(zipCode)}>Search</button>
+      <button onClick={() => handleSearch(zipCode)} style={styles.button}>Search</button>
       <div>
         {loading ? (
           <p>Loading...</p>
@@ -79,12 +131,14 @@ function UserProfile() {
         ) : (
           restaurants.map((restaurant, index) => (
             <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
-              <img src={restaurant.image} alt={restaurant.name} style={styles.image} />
-              <p>Name: {restaurant.name}</p>
-              <p>Address: {restaurant.address}</p>
+              {/* <img src={restaurant.image} alt={restaurant.name} style={styles.image} /> */}
+              <p style={styles.restaurantName}>Name: {restaurant.name}</p>
+              <p>Address: {restaurant.address || 'Address not available'}</p>
               <p>Rating: {restaurant.rating}</p>
               <p>Open: {restaurant.open ? 'Yes' : 'No'}</p>
-              <a href={restaurant.link} target="_blank" rel="noopener noreferrer">Visit Website</a>
+              <a href={restaurant.link || '#'} target="_blank" rel="noopener noreferrer">
+                {restaurant.link ? 'Visit Website' : 'No website available'}
+              </a>
             </div>
           ))
         )}
@@ -94,4 +148,3 @@ function UserProfile() {
 }
 
 export default UserProfile;
-

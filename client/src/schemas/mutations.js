@@ -31,6 +31,7 @@ export const RESTAURANTS = gql`
       name
       rating
       open
+      link
     }
   }
 `
@@ -46,7 +47,3 @@ favoriteRestaurants{
 }
 `
 
-// rating 
-// open
-// image
-//link 
