@@ -1,6 +1,8 @@
-// home page 
+// home page component
 
-// import { useState } from 'react';
+import signUp from "../assets/images/signUp.jpg"
+// import findRestautants from "../assets/images/photo2.png"
+import food from "../assets/images/foodCollage.jpg"
 
 function Homepage() {
 
@@ -16,8 +18,8 @@ function Homepage() {
             <div className="photo-item">
                 <div className="photo-wrapper">
                     <h3>Sign Up</h3>
-                    <p>Easily sign up with your email and zip code</p>
-                    <img src="photo1.jpg" alt="Photo 1" />
+                    <p>Easily sign up with your email, password and zip code</p>
+                    <img src={signUp} alt="Sign Up page" />
                 </div>
             </div>
             <div className="photo-item">
@@ -31,7 +33,7 @@ function Homepage() {
                 <div className="photo-wrapper">
                     <h3>Enjoy Midnight Cravings</h3>
                     <p>Satisfy midnight hungers and save restaurants to your favorites</p>
-                    <img src="photo3.jpg" alt="Photo 3" />
+                    <img src={food} alt="food collage" />
                 </div>
             </div>
         </div>
