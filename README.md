@@ -1,6 +1,6 @@
 ## Project 3 Late Nite Bytes
 
-MERN Stack Single-Page Application for Late nite bytes
+MERN Stack Single-Page Application for Late Nite Bytes!
 
 ## Description
 
@@ -14,7 +14,10 @@ The following image demonstrates the web application's appearance and functional
 
 ## Usage
 
-Late nite bytes
+React for the front end.
+GraphQL with a Node.js and Express.js server.
+MongoDB and the Mongoose ODM for the database.
+Use queries and mutations for retrieving, adding, updating, and deleting data.
 
 ## Contributing
 
