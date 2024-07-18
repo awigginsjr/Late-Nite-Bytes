@@ -122,10 +122,11 @@ function UserProfile() {
               <img src={restaurant.image} alt={restaurant.name} style={styles.image}/>
         
              
+              
               <p style={styles.restaurantName}>{restaurant.name}</p>
               <p>{restaurant.address || 'Address not available'}</p>
               <p>Rating: {restaurant.rating}</p>
-              <p>Open: {restaurant.open == 'true' ? 'Yes' : 'No'}</p>
+              <p>Open: {restaurant.open ? 'Yes' : 'No'}</p>
               <a href={restaurant.link} target="_blank" rel="noopener noreferrer">
                 {restaurant.name} on Google Maps
               </a>
