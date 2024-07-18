@@ -109,8 +109,11 @@ function UserProfile() {
     },
     restaurantName: {
       fontWeight: 'bold',
-      color: 'blue',
+      color: 'White',
     },
+    a:{
+      color: 'red'
+    }
   };
 
   return (
@@ -132,6 +135,8 @@ function UserProfile() {
         ) : (
           restaurants.map((restaurant, index) => (
             <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
+
+              <img src={restaurant.image} />
         
              
               <p style={styles.restaurantName}>{restaurant.name}</p>

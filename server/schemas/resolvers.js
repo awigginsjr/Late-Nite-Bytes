@@ -67,14 +67,12 @@ const resolvers = {
         {
           let location = results[i];
 
-          //console.log(location.vicinity, location.opening_hours.open_now);
-
           list.push({
             restaurantId: location.place_id,
             name: location.name,
-            image: location.photos[0],
+            image: location.photos && location.photos[0] ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${location.photos[0].photo_reference}&key=${apiKey}` : null,
             rating: location.rating,
-            open: location.opening_hours.open_now,
+            open: location.opening_hours ? location.opening_hours.open_now : null,
             link: `https://www.google.com/maps/place/?q=place_id:${location.place_id}`,
             address: location.vicinity,
            });
