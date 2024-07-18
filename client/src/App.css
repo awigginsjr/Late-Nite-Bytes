@@ -17,7 +17,7 @@ body {
   /* font-family: Arial, sans-serif; */
   /* background-color: #1a1a1a; */
   /* background-image: url(./public/food\ wallpaper.avif); */
-  background-image: url(./food\ wallpaper.avif);
+  background-image: url(/wallpaper.avif);
   margin: 0;
   display: flex;
   flex-direction: column;
