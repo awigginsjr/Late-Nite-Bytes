@@ -9,7 +9,6 @@ function UserProfile() {
 
   const search = async (zip) => {
     let list = [];
-
     try {
       const { data } = await loadRestaurants({ variables: { areaCode: zip } });
       console.log('Backend response:', data); // Log backend response
@@ -17,7 +16,9 @@ function UserProfile() {
     } catch (err) {
       console.error(err);
     }
+    console.log('list', list);
 
+    //https://www.google.com/maps/place/?q=place_id:ChIJ_R3H1WZ654gR4pxbRDOomyY
     setRestaurants(list);
   };
 
@@ -122,7 +123,7 @@ function UserProfile() {
         placeholder="Enter zip code"
         style={styles.input}
       />
-      <button onClick={() => handleSearch(zipCode)} style={styles.button}>Search</button>
+      <button onClick={handleSearch} style={styles.button}>Search</button>
       <div>
         {loading ? (
           <p>Loading...</p>
@@ -131,13 +132,14 @@ function UserProfile() {
         ) : (
           restaurants.map((restaurant, index) => (
             <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
-              {/* <img src={restaurant.image} alt={restaurant.name} style={styles.image} /> */}
-              <p style={styles.restaurantName}>Name: {restaurant.name}</p>
-              <p>Address: {restaurant.address || 'Address not available'}</p>
+        
+             
+              <p style={styles.restaurantName}>{restaurant.name}</p>
+              <p>{restaurant.address || 'Address not available'}</p>
               <p>Rating: {restaurant.rating}</p>
-              <p>Open: {restaurant.open ? 'Yes' : 'No'}</p>
-              <a href={restaurant.link || '#'} target="_blank" rel="noopener noreferrer">
-                {restaurant.link ? 'Visit Website' : 'No website available'}
+              <p>Open: {restaurant.open == 'true' ? 'Yes' : 'No'}</p>
+              <a href={restaurant.link} target="_blank" rel="noopener noreferrer">
+                {restaurant.name} on Google Maps
               </a>
             </div>
           ))
