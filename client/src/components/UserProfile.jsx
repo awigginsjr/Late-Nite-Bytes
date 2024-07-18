@@ -36,6 +36,12 @@ function UserProfile() {
 
   const styles = {
     container: {
+      backgroundColor: 'rgba(0, 0, 0, .95)',
+      maxWidth: '900px',
+      borderRadius: '20px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      fontFamily: "'Pacifico', cursive",
       fontSize: '24px',
       color: 'whitesmoke',
       textShadow: `
@@ -57,52 +63,29 @@ function UserProfile() {
     input: {
       fontSize: '24px',
       color: 'whitesmoke',
-      textShadow: `
-        1px 1px 2px #000,
-        2px 2px 4px #000,
-        3px 3px 6px #000,
-        4px 4px 8px #000,
-        5px 5px 10px #f00,
-        0 0 20px #f00,
-        0 0 30px #f00,
-        0 0 40px #f00,
-        0 0 50px #f00,
-        0 0 60px #f00,
-        0 0 70px #f00,
-        0 0 80px #f00
-      `,
       zIndex: 1,
-      backgroundColor: '#333',
+      fontFamily: "'Pacifico', cursive",
+      backgroundColor: 'rgba(0, 0, 0, .95)',
       border: '1px solid #fff',
+      borderRadius: '5px',
       padding: '10px',
       marginBottom: '10px',
     },
     button: {
       fontSize: '24px',
       color: 'whitesmoke',
-      textShadow: `
-        1px 1px 2px #000,
-        2px 2px 4px #000,
-        3px 3px 6px #000,
-        4px 4px 8px #000,
-        5px 5px 10px #f00,
-        0 0 20px #f00,
-        0 0 30px #f00,
-        0 0 40px #f00,
-        0 0 50px #f00,
-        0 0 60px #f00,
-        0 0 70px #f00,
-        0 0 80px #f00
-      `,
-      zIndex: 1,
+      borderRadius: '5px',
+      fontFamily: "'Pacifico', cursive",
       backgroundColor: '#333',
       border: '1px solid #fff',
       padding: '10px 20px',
       cursor: 'pointer',
     },
     image: {
-      width: '100px',
-      height: '100px',
+      width: '200px',
+      height: '200px',
+      borderRadius: '10px',
+      marginBottom: '10px',
     },
     restaurantContainer: {
       marginBottom: '20px',
@@ -136,7 +119,7 @@ function UserProfile() {
           restaurants.map((restaurant, index) => (
             <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
 
-              <img src={restaurant.image} />
+              <img src={restaurant.image} alt={restaurant.name} style={styles.image}/>
         
              
               <p style={styles.restaurantName}>{restaurant.name}</p>

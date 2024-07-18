@@ -10,7 +10,7 @@ Late nite bytes - The purpose of this web app is to allow users to either login 
 
 The following image demonstrates the web application's appearance and functionality:
 
-![screenshot](Late nite bytes)
+![screenshot](./client/src/assets/images/lateNiteBytes.png)
 
 ## Usage
 
