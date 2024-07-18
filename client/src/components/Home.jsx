@@ -1,7 +1,7 @@
 // home page component
 
 import signUp from "../assets/images/signUp.jpg"
-// import findRestautants from "../assets/images/photo2.png"
+import mapShot from "../assets/images/mapShot.jpg"
 import food from "../assets/images/foodCollage.jpg"
 
 function Homepage() {
@@ -26,7 +26,7 @@ function Homepage() {
                 <div className="photo-wrapper">
                     <h3>Find Restaurants</h3>
                     <p>Browse through a wide range of restaurants near you</p>
-                    <img src="photo2.jpg" alt="Photo 2" />
+                    <img src={mapShot} alt="map near by spots" />
                 </div>
             </div>
             <div className="photo-item">
