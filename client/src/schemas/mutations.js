@@ -32,6 +32,7 @@ export const RESTAURANTS = gql`
       rating
       open
       link
+      address
     }
   }
 `

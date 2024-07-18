@@ -62,13 +62,12 @@ const resolvers = {
         const placesResponse = await axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location.lat},${location.lng}&radius=5000&type=restaurant&key=${apiKey}`);
         
         const results = placesResponse.data.results;
-        console.log(results);
 
         for (let i = 0; i < results.length; i++)
         {
           let location = results[i];
 
-          console.log(location);
+          //console.log(location.vicinity, location.opening_hours.open_now);
 
           list.push({
             restaurantId: location.place_id,
@@ -76,7 +75,8 @@ const resolvers = {
             image: location.photos[0],
             rating: location.rating,
             open: location.opening_hours.open_now,
-            link: location.vicinity,
+            link: `https://www.google.com/maps/place/?q=place_id:${location.place_id}`,
+            address: location.vicinity,
            });
         }
       } catch(err) {
