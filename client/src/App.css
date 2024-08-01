@@ -549,7 +549,7 @@ h1:hover {
   z-index: 1; /* Ensure text is above background */
 }
 
-h2 {
+h4 {
   font-size: 36px;
   background-color: rgba(0, 0, 0, 0.95);
   color: whitesmoke;

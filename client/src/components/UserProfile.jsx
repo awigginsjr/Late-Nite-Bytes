@@ -136,7 +136,7 @@ function UserProfile() {
           <p>Error occurred</p>
         ) : (
           <>
-            {zipCode && <h2>Displaying Restaurants Near Zip Code {zipCode}</h2>}
+            {zipCode && <h4>Displaying Restaurants Near Zip Code {zipCode}</h4>}
             {restaurants.map((restaurant, index) => (
               <div key={restaurant.restaurantId || index} style={styles.restaurantContainer}>
                 <img src={restaurant.image} alt={restaurant.name} style={styles.image}/>
