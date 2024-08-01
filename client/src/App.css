@@ -14,6 +14,7 @@
 }
 
 body {
+  padding-top: 15px;
   /* font-family: Arial, sans-serif; */
   /* background-color: #1a1a1a; */
   /* background-image: url(./public/food\ wallpaper.avif); */
@@ -50,14 +51,14 @@ body {
   margin: 0 auto;
   text-align: center;
   padding: 10px 0;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Comic Sans MS';
 }
 
 .hero h1{
   margin-left: auto;
   margin-right: auto;
   font-size: 100px;
-  font-family:'Pacifico', cursive;
+  font-family:'Comic Sans MS';
   font-size: 4rem;
   color: whitesmoke;
   text-align: center;
@@ -154,7 +155,7 @@ body {
   margin-right: auto;
   background-color: rgba(0, 0, 0, .95);
   border-radius: 20px;
-  font-family:'Pacifico', cursive;
+  font-family:'Comic Sans MS';
 }
 
 .intro h2 {
@@ -251,12 +252,11 @@ body {
   border-radius: 40px;
   box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.95);
   transition: transform 0.3s;
-
 }
 
 .photo-wrapper h3 {
   font-size: 20px;
-  font-family:'Pacifico', cursive;
+  font-family:'Comic Sans MS';
   color: whitesmoke;
   text-shadow: 
   1px 1px 2px #000,
@@ -276,7 +276,7 @@ body {
 
 .photo-wrapper p {
   color: whitesmoke;
-  font-family:'Pacifico', cursive;
+  font-family:'Comic Sans MS';
 }
 
 @media (max-width: 430px) {
@@ -305,7 +305,7 @@ body {
   margin-right: auto;
   background-color: rgba(0, 0, 0, .95);
   border-radius: 20px;
-  font-family:'Pacifico', cursive;
+  font-family:'Comic Sans MS';
 }
 
 .error-page h1 {
@@ -505,6 +505,63 @@ body {
   text-align: center;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+text-decoration: none;
+font-size: 32px;
+color: whitesmoke;
+font-family:'Comic Sans MS';
+text-shadow: 
+1px 1px 2px #000,
+2px 2px 4px #000,
+3px 3px 6px #000,
+4px 4px 8px #000,
+5px 5px 10px #f00,
+0 0 20px #f00,
+0 0 30px #f00,
+0 0 40px #f00,
+0 0 50px #f00,
+0 0 60px #f00,
+0 0 70px #f00,
+0 0 80px #f00;
+z-index: 1; /* Ensure text is above background */
+}
+
+h1:hover {
+  animation: flicker 1.5s infinite alternate;
+  text-shadow: 
+  1px 1px 2px #000,
+  2px 2px 4px #000,
+  3px 3px 6px #000,
+  4px 4px 8px #000,
+  5px 5px 10px #f00,
+  0 0 20px #f00,
+  0 0 30px #f00,
+  0 0 40px #f00,
+  0 0 50px #f00,
+  0 0 60px #f00,
+  0 0 70px #f00,
+  0 0 80px #f00;
+  z-index: 1; /* Ensure text is above background */
+}
+
+h2 {
+  font-size: 36px;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: whitesmoke;
+  border-radius: 30px;
+  border: 1px solid whitesmoke;
+  padding: 10px;
+}
+
+p { 
+  font-size: 18px;
+}
+
 /* Restaurant list styling */
 .restaurant-list {
   margin-top: 20px;
@@ -518,6 +575,10 @@ body {
 .restaurant-list p {
   margin: 5px 0;
   font-size: 14px;
+}
+
+.image {
+border-radius: 10px;
 }
 
 /* ----- Footer Styling ------ */
@@ -618,7 +679,7 @@ footer a .icon:hover:before {
 
 .footer-bottom p {
   margin-top: 20px; /* Add space above the paragraph */
-  font-family: 'Pacifico', cursive;
+  font-family: 'Comic Sans MS';
   text-align: center; /* Center align the text */
   color: whitesmoke; /* White text color */
   font-size: 14px; /* Adjust font size */
@@ -660,3 +721,12 @@ footer a .icon:hover:before {
 
 /* ----- Footer Styling ------ */
 
+.loader {
+  font-size: 50px; /* Adjust size as needed */
+  animation: spin .4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
