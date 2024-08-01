@@ -45,21 +45,6 @@ function UserProfile() {
       fontFamily: 'Comic Sans MS',
       fontSize: '24px',
       color: 'whitesmoke',
-      // textShadow: `
-      //   1px 1px 2px #000,
-      //   2px 2px 4px #000,
-      //   3px 3px 6px #000,
-      //   4px 4px 8px #000,
-      //   5px 5px 10px #f00,
-      //   0 0 20px #f00,
-      //   0 0 30px #f00,
-      //   0 0 40px #f00,
-      //   0 0 50px #f00,
-      //   0 0 60px #f00,
-      //   0 0 70px #f00,
-      //   0 0 80px #f00
-      // `,
-      // zIndex: 1,
     },
     input: {
       fontSize: '24px',
@@ -88,10 +73,13 @@ function UserProfile() {
       objectFit: 'cover',
       borderRadius: '20px',
       marginBottom: '15px',
-      marginRight: '20px', // Add margin to the right to space out the image from the 
+      marginRight: '20px', 
       marginTop: '15px',
       marginLeft: '20px',
       position: 'center',
+      '@media (maxWidth: 500px)': {
+        width: '100%',
+      },
     },
     restaurantContainer: {
       display: 'flex',
@@ -102,7 +90,12 @@ function UserProfile() {
       borderRadius: '30px',
       textAlign: 'center',
       backgroundColor: 'rgba(0, 0, 0, .95)',
+      flexDirection: 'row',
+      flexWrap: 'wrap', // Allow flex items to wrap
       // boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      '@media (maxWidth: 500px)': { 
+        flexDirection: 'column', 
+      },
     },
     restaurantDetails: {
       flex: 1, // Allows the text container to take up the remaining space
@@ -113,7 +106,22 @@ function UserProfile() {
     },
     a:{
       color: 'red'
-    }
+    },
+    // Media query for smaller screens
+    '@media (maxWidth: 500px)': {
+      restaurantContainer: {
+        flexDirection: 'column', // Change direction to column on small screens
+        alignItems: 'center', // Align items to the start
+      },
+      image: {
+        margin: '0 auto', // Center the image
+        marginBottom: '15px',
+      },
+      restaurantDetails: {
+        textAlign: 'center', // Center text in details
+        width: '100%', // Take up full width
+      },
+    },
   };
 
   return (
